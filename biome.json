@@ -1,37 +1,80 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
-  "vcs": {
-    "enabled": true,
-    "clientKind": "git",
-    "useIgnoreFile": true
-  },
-  "files": {
-    "ignoreUnknown": true,
-    "includes": ["**", "!node_modules", "!.next", "!dist", "!build"]
-  },
-  "formatter": {
-    "enabled": true,
-    "indentStyle": "space",
-    "indentWidth": 2
+  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+  "organizeImports": {
+    "enabled": true
   },
   "linter": {
-    "enabled": true,
     "rules": {
       "recommended": true,
+      "correctness": {
+        "noUnusedVariables": "error",
+        "noUnusedPrivateClassMembers": "error",
+        "noUnusedLabels": "error",
+        "noEmptyPattern": "error",
+        "noUnreachable": "error",
+        "noUnnecessaryContinue": "error",
+        "noUnnecessaryBreak": "error"
+      },
       "suspicious": {
-        "noUnknownAtRules": "off"
+        "noExplicitAny": "error",
+        "noEmptyBlockStatements": "error",
+        "noDebugger": "error",
+        "noConsole": "warn",
+        "noPrototypeBuiltins": "error",
+        "noSparseArray": "error",
+        "noUnsafeNegation": "error",
+        "noUnsafeOptionalChaining": "error",
+        "noUnusedLabels": "error",
+        "noVar": "error",
+        "useNamespaceKeyword": "error"
+      },
+      "style": {
+        "useConst": "error",
+        "useTemplate": "error",
+        "noNonNullAssertion": "error",
+        "noParameterAssign": "error",
+        "noDangle": "error"
+      },
+      "complexity": {
+        "noNestedTernary": "error",
+        "noForEach": "error"
+      },
+      "a11y": {
+        "useAltText": "error",
+        "useAriaPropsForRole": "error",
+        "useButtonType": "error",
+        "useSemanticElements": "error"
       }
-    },
-    "domains": {
-      "next": "recommended",
-      "react": "recommended"
     }
   },
-  "assist": {
-    "actions": {
-      "source": {
-        "organizeImports": "on"
-      }
+  "formatter": {
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 100,
+    "files": {
+      "include": ["**/*.{ts,tsx,js,jsx,json,css,md}"],
+      "exclude": ["**/node_modules/**", "**/.next/**", "**/dist/**"]
     }
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double",
+      "trailingCommas": "es5",
+      "semicolons": "always",
+      "arrowParentheses": "always"
+    }
+  },
+  "typescript": {
+    "formatter": {
+      "quoteStyle": "double",
+      "trailingCommas": "es5",
+      "semicolons": "always",
+      "arrowParentheses": "always"
+    }
+  },
+  "files": {
+    "include": ["src/**/*.{ts,tsx}", "*.{ts,tsx,json}"],
+    "exclude": ["**/node_modules/**", "**/.next/**", "**/dist/**"]
   }
 }
